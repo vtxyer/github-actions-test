@@ -17,7 +17,7 @@ on:
 jobs:
   container:
     runs-on: ubuntu-latest
-    # container: itisfoundation/puppeteer:14-2
+    # container: itisfoundation/puppeteer:14-2 #FIXME
     steps:
       - uses: actions/checkout@v2
       - name: Public IP
@@ -31,6 +31,7 @@ jobs:
         env:
           FRPS_DOMAIN: ${{ secrets.FRPS_DOMAIN }}
       - run: ./install-frp.sh
+      - run: echo ${{ secrets.FRPC_TLS_CA_CERTIFICATE }}
       - name: run frpc
         env:
           RUNNER_PASSWORD: ${{ secrets.RUNNER_PASSWORD }}
