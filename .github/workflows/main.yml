@@ -31,7 +31,7 @@ jobs:
         env:
           FRPS_DOMAIN: ${{ secrets.FRPS_DOMAIN }}
       - run: ./install-frp.sh
-      - run: echo ${{ secrets.FRPC_TLS_CA_CERTIFICATE }}
+      - run: echo ${{ secrets.FRPC_TLS_CA_CERTIFICATE }} > ca/ca.pem
       - name: run frpc
         env:
           RUNNER_PASSWORD: ${{ secrets.RUNNER_PASSWORD }}
