@@ -17,7 +17,7 @@ on:
 jobs:
   container:
     runs-on: ubuntu-20.04
-    # container: itisfoundation/puppeteer:14-2 #FIXME
+    container: itisfoundation/puppeteer:14-2 #FIXME
     steps:
       - uses: actions/checkout@v2
       - name: Public IP
