@@ -34,7 +34,6 @@ jobs:
       - name: run frpc
         run: ./run-frpc.sh
         env:
-          RUNNER_PASSWORD: ${{ secrets.RUNNER_PASSWORD }}
           FRPS_DOMAIN: ${{ secrets.FRPS_DOMAIN }}
           FRPC_TLS_KEY: ${{ secrets.FRPC_TLS_KEY }}
           FRPC_TLS_CERTIFICATE: ${{ secrets.FRPC_TLS_CERTIFICATE }}
