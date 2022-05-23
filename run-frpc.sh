@@ -4,9 +4,13 @@ set -euxo pipefail
 
 # when running in CI override the frpc tls files.
 if [ -v FRPC_TLS_CA_CERTIFICATE ]; then
-    cat >ca/github-key.pem <<<"$FRPC_TLS_KEY"
-    cat >ca/github.pem <<<"$FRPC_TLS_CERTIFICATE"
-    cat >ca/ca.pem <<<"$FRPC_TLS_CA_CERTIFICATE"
+    echo "$FRPC_TLS_KEY" > ca/github-key.pem
+    echo "$FRPC_TLS_CERTIFICATE" > ca/github.pem
+    echo "$FRPC_TLS_CA_CERTIFICATE" > ca/ca.pem
+    
+    #cat >ca/github-key.pem <<<"$FRPC_TLS_KEY"
+    #cat >ca/github.pem <<<"$FRPC_TLS_CERTIFICATE"
+    #cat >ca/ca.pem <<<"$FRPC_TLS_CA_CERTIFICATE"
     
     cat ca/ca.pem
     
