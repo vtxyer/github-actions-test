@@ -11,9 +11,9 @@ on:
 jobs:
   container:
     runs-on: ubuntu-20.04
-    container:
-      image: browserless/chrome:1-chrome-stable
-      options: --user root
+    #container:
+      #image: browserless/chrome:1-chrome-stable
+      #options: --user root
     steps:
       - uses: actions/checkout@v2      
       #- uses: actions/setup-node@v2
@@ -26,7 +26,8 @@ jobs:
       #  run: |
       #    echo 'ipv4: ${{ steps.ip.outputs.ipv4 }}'
       #    echo 'ipv6: ${{ steps.ip.outputs.ipv6 }}'
-      - run: mkdir -p ~
+
+      - uses: docker://browserless/chrome:1-chrome-stable
       
       
       - run: ./generate-certificates.sh
