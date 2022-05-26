@@ -11,8 +11,9 @@ on:
 jobs:
   container:
     runs-on: ubuntu-20.04
-    container: browserless/chrome:1-chrome-stable
-    #container: itisfoundation/puppeteer:14-2 #FIXME
+    container:
+      image: browserless/chrome:1-chrome-stable
+      options: --user root
     steps:
       - uses: actions/checkout@v2      
       - uses: actions/setup-node@v2
