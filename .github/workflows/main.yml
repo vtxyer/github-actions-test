@@ -32,7 +32,7 @@ jobs:
       - run: ./install-frp.sh
       
       - name: Start browser
-        run: /usr/src/app/start.sh &
+        run: su blessuser /usr/src/app/start.sh &
       - name: run frpc
         run: ./run-frpc.sh
         env:
