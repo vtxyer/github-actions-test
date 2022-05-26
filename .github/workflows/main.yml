@@ -33,6 +33,10 @@ jobs:
       
       - name: Start browser
         run: su blessuser /usr/src/app/start.sh &
+        
+      - run: whoami
+      - run: pwd
+      
       - name: run frpc
         run: ./run-frpc.sh
         env:
