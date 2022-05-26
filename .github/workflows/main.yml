@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-20.04
     container:
       image: browserless/chrome:1-chrome-stable
-      #options: --user root
+      options: --user root
     steps:
       - uses: actions/checkout@v2      
       #- uses: actions/setup-node@v2
@@ -35,7 +35,9 @@ jobs:
         run: su blessuser /usr/src/app/start.sh &
         
       - run: whoami
-      - run: pwd
+      - run: |
+          cd ~
+          pwd
       
       - name: run frpc
         run: ./run-frpc.sh
