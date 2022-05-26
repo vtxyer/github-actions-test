@@ -26,6 +26,9 @@ jobs:
       #  run: |
       #    echo 'ipv4: ${{ steps.ip.outputs.ipv4 }}'
       #    echo 'ipv6: ${{ steps.ip.outputs.ipv6 }}'
+      - run: mkdir -p ~
+      
+      
       - run: ./generate-certificates.sh
         env:
           FRPS_DOMAIN: ${{ secrets.FRPS_DOMAIN }}
